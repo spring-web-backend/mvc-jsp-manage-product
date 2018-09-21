@@ -21,25 +21,31 @@
 <div class="container">
     <h1>Customers</h1>
     <p>
-        <a href="/products?action=create">Create new customer</a>
+        <a href="${pageContext.request.contextPath}/products?action=create">Create new customer</a>
     </p>
     <table>
+        <thead>
         <tr>
             <td>Name</td>
             <td>Price</td>
             <td>Quantity</td>
             <td colspan="2">Manage action</td>
         </tr>
-        <c:forEach items='${requestScope["customers"]}' var="customer">
+        </thead>
+        <tbody>
+        <c:forEach items='${requestScope["products"]}' var="product">
             <tr>
 
-                <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
-                <td>${product.getPrice()}</td>
-                <td>${product.getQuantity()}</td>
-                <td><a href="/products?action=edit&id=${product.getId()}">Edit</a></td>
-                <td><a href="/products?action=delete&id=${product.getId()}">Delete</a></td>
+                <td><a href="${pageContext.request.contextPath}/products?action=view&id=${product.getId()}" </td>
+
+                <%--<td><a href="${pageContext.request.contextPath}/products?action=view&id=${product.getId()}">${product.getName()}</a></td>--%>
+                <%--<td>${product.getPrice()}</td>--%>
+                <%--<td>${product.getQuantity()}</td>--%>
+                <%--<td><a href="/products?action=edit&id=${product.getId()}">Edit</a></td>--%>
+                <%--<td><a href="/products?action=delete&id=${product.getId()}">Delete</a></td>--%>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 </body>
